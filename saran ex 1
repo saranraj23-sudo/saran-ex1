@@ -1,0 +1,91 @@
+import java.util.Scanner; // 3. Import Scanner class
+
+public class ControlStatementsDemo {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int choice;
+
+        // 5. do–while loop to repeat menu
+        do {
+            // 4. Display menu
+            System.out.println("\n===== CONTROL STATEMENTS MENU =====");
+            System.out.println("1. Check Even or Odd");
+            System.out.println("2. Find Largest of Two Numbers");
+            System.out.println("3. Multiplication Table");
+            System.out.println("4. Prime Numbers up to N");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+
+            choice = sc.nextInt();
+
+            // 6. switch statement
+            switch (choice) {
+
+                case 1: // Even / Odd using if–else
+                    System.out.print("Enter a number: ");
+                    int num = sc.nextInt();
+
+                    if (num % 2 == 0)
+                        System.out.println(num + " is Even");
+                    else
+                        System.out.println(num + " is Odd");
+                    break;
+
+                case 2: // Largest number using if–else
+                    System.out.print("Enter first number: ");
+                    int a = sc.nextInt();
+                    System.out.print("Enter second number: ");
+                    int b = sc.nextInt();
+
+                    if (a > b)
+                        System.out.println(a + " is the largest");
+                    else if (b > a)
+                        System.out.println(b + " is the largest");
+                    else
+                        System.out.println("Both numbers are equal");
+                    break;
+
+                case 3: // Multiplication table using for loop
+                    System.out.print("Enter a number: ");
+                    int table = sc.nextInt();
+
+                    for (int i = 1; i <= 10; i++) {
+                        System.out.println(table + " x " + i + " = " + (table * i));
+                    }
+                    break;
+
+                case 4: // Prime numbers using for loop
+                    System.out.print("Enter limit: ");
+                    int limit = sc.nextInt();
+
+                    System.out.println("Prime numbers up to " + limit + ":");
+                    for (int i = 2; i <= limit; i++) {
+                        boolean isPrime = true;
+
+                        for (int j = 2; j <= i / 2; j++) {
+                            if (i % j == 0) {
+                                isPrime = false;
+                                break;
+                            }
+                        }
+
+                        if (isPrime)
+                            System.out.print(i + " ");
+                    }
+                    System.out.println();
+                    break;
+
+                case 5:
+                    System.out.println("Exiting program...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+
+        } while (choice != 5); // Repeat until Exit
+
+        sc.close();
+    }
+}
