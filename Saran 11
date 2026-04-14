@@ -1,0 +1,34 @@
+import javax.swing.*;
+import java.awt.event.*;
+public class SwingDemo extends JFrame implements ActionListener {
+ JLabel label;
+ JTextField textField;
+ JButton button;
+ SwingDemo() {
+ // Create components
+ label = new JLabel("Enter your name:");
+ label.setBounds(50, 50, 150, 30);
+textField = new JTextField();
+ textField.setBounds(200, 50, 150, 30);
+ button = new JButton("Submit");
+ button.setBounds(150, 100, 100, 30);
+ // Add Action Listener
+ button.addActionListener(this);
+ // Add components to frame
+ add(label);
+ add(textField);
+ add(button);
+ // Frame settings
+ setSize(400, 250);
+ setLayout(null);
+ setVisible(true);
+ setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+ }
+ public void actionPerformed(ActionEvent e) {
+ String name = textField.getText();
+ JOptionPane.showMessageDialog(this, "Hello " + name + "!");
+ }
+ public static void main(String[] args) {
+ new SwingDemo();
+ }
+}
